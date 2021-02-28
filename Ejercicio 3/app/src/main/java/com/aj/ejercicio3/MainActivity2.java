@@ -25,12 +25,6 @@ public class MainActivity2 extends AppCompatActivity {
         empleadosArray[1] = (Empleado) intent.getSerializableExtra("datosEmpleado2");
         empleadosArray[2] = (Empleado) intent.getSerializableExtra("datosEmpleado3");
 
-        Boolean bonos = intent.getExtras().getBoolean("hayBonos");
-
-        if(bonos == Boolean.FALSE){
-            Toast notificacion= Toast.makeText(this,"NO HAY BONOS",Toast.LENGTH_LONG);
-            notificacion.show();
-        }
 
 
 
@@ -66,7 +60,7 @@ public class MainActivity2 extends AppCompatActivity {
         int indiceEmpleadoMayorSueldo = 0;
         int indiceEmpleadoMenorSueldo = 0;
 
-        String empleadosSueldoMayor300 = "";
+        String empleadosSueldoMayor300 = " ";
 
         for(int i=1;i< 3;i++){
             if(empleadosArray[i].getSueldoLiquido() > empleadosArray[indiceEmpleadoMayorSueldo].getSueldoLiquido()){
@@ -77,11 +71,10 @@ public class MainActivity2 extends AppCompatActivity {
             }
 
             if (empleadosArray[i].getSueldoLiquido() > 300)
-                empleadosSueldoMayor300.concat(" " + empleadosArray[i].getNombre());
+                empleadosSueldoMayor300.concat(" " + empleadosArray[i].getNombre() + " ");
         }
 
-        if(empleadosSueldoMayor300 == "")
-            empleadosSueldoMayor300 = "Ningun empleado gana mas de $300";
+
 
 
         txtEmpleadoMayorSueldo = (TextView) findViewById(R.id.textEmpleadoMayorSalario);
@@ -93,5 +86,15 @@ public class MainActivity2 extends AppCompatActivity {
 
         txtEmpleadoSueldoMayor300 = (TextView) findViewById(R.id.textEmpleadosSalarioMayor300);
         txtEmpleadoSueldoMayor300.setText(empleadosSueldoMayor300);
+
+
+        Boolean bonos = intent.getExtras().getBoolean("hayBonos");
+
+        if(bonos == Boolean.FALSE){
+            Toast notificacion= Toast.makeText(this,"NO HAY BONOS",Toast.LENGTH_LONG);
+            notificacion.show();
+        }
+
+
     }
 }

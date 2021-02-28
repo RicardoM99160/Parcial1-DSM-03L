@@ -25,7 +25,7 @@ public class Empleado implements Serializable {
 
     public void setSueldoNeto(Double sueldoNeto){
         this.sueldoNeto = sueldoNeto;
-        this.calcularSueldoLiquido();
+
     }
 
     protected void calcularSueldoLiquido(){
@@ -37,7 +37,8 @@ public class Empleado implements Serializable {
     }
 
     public void setBono(Double bono){
-        this.sueldoLiquido = this.sueldoLiquido + this.sueldoLiquido * bono;
+        this.sueldoNeto = this.sueldoNeto + this.sueldoNeto * bono;
+        this.calcularSueldoLiquido();
     }
 
     public String getNombre() {
