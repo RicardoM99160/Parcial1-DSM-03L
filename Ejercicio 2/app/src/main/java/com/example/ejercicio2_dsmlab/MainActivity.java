@@ -2,6 +2,7 @@ package com.example.ejercicio2_dsmlab;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -10,12 +11,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private EditText etIngresoVotos;
-    private TextView tvC1;
-    private TextView tvC2;
-    private TextView tvC3;
-    private TextView tvC4;
-    private TextView tvNulos;
-    private TextView tvTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +18,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         etIngresoVotos=(EditText)findViewById(R.id.etVotos);
-        tvC1=(TextView)findViewById(R.id.tvC1);
-        tvC2=(TextView)findViewById(R.id.tvC2);
-        tvC3=(TextView)findViewById(R.id.tvC3);
-        tvC4=(TextView)findViewById(R.id.tvC4);
-        tvNulos=(TextView)findViewById(R.id.tvNulos);
-        tvTotal=(TextView)findViewById(R.id.tvTotal);
     }
 
     public void contar(View view){
@@ -74,21 +63,20 @@ public class MainActivity extends AppCompatActivity {
         int porcenajeC4 = (votosCadidato4*100)/cantidadVotos;
         int porcenajeNulos = (votosNulos*100)/cantidadVotos;
 
-        //Esto solo es para debug en este caso
-        String vc1 = String.valueOf(porcenajeC1);
-        String vc2 = String.valueOf(porcenajeC2);
-        String vc3 = String.valueOf(porcenajeC3);
-        String vc4 = String.valueOf(porcenajeC4);
-        String vNulos = String.valueOf(porcenajeNulos);
-        String total = String.valueOf(cantidadVotos);
+        //Enviando datos a la siguiente actividad
+        Intent i = new Intent(this,conteoVotos.class);
+        i.putExtra("N1", ""+votosCadidato1);
+        i.putExtra("N2", ""+votosCadidato2);
+        i.putExtra("N3", ""+votosCadidato3);
+        i.putExtra("N4", ""+votosCadidato4);
+        i.putExtra("NN", ""+votosNulos);
+        i.putExtra("P1", ""+porcenajeC1);
+        i.putExtra("P2", ""+porcenajeC2);
+        i.putExtra("P3", ""+porcenajeC3);
+        i.putExtra("P4", ""+porcenajeC4);
+        i.putExtra("PN", ""+porcenajeNulos);
 
-        //Estas impresiones a un TextView tambien son para debug que haga bien los calculos
-        tvTotal.setText(total);
+        startActivity(i);
 
-        tvC1.setText(vc1);
-        tvC2.setText(vc2);
-        tvC3.setText(vc3);
-        tvC4.setText(vc4);
-        tvNulos.setText(vNulos);
     }
 }
