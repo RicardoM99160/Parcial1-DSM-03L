@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
         String combinacionCargos = empleado1.getCargo() + empleado2.getCargo() + empleado3.getCargo();
 
-        if(combinacionCargos == "GerenteAsistenteSecretaria") {
+        if(combinacionCargos.equals("GerenteAsistenteSecretaria")) {
             empleado1.setBono(0.0);
             empleado2.setBono(0.0);
             empleado3.setBono(0.0);

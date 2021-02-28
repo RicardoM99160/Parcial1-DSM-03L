@@ -2,9 +2,11 @@ package com.aj.ejercicio3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +15,7 @@ import org.w3c.dom.Text;
 public class MainActivity2 extends AppCompatActivity {
     TextView txtEmpleadoMayorSueldo, txtEmpleadoMenorSueldo, txtEmpleadoSueldoMayor300;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +63,7 @@ public class MainActivity2 extends AppCompatActivity {
         int indiceEmpleadoMayorSueldo = 0;
         int indiceEmpleadoMenorSueldo = 0;
 
-        String empleadosSueldoMayor300 = " ";
+        String empleadosSueldoMayor300 = "";
 
         for(int i=1;i< 3;i++){
             if(empleadosArray[i].getSueldoLiquido() > empleadosArray[indiceEmpleadoMayorSueldo].getSueldoLiquido()){
@@ -70,8 +73,8 @@ public class MainActivity2 extends AppCompatActivity {
                 indiceEmpleadoMenorSueldo = i;
             }
 
-            if (empleadosArray[i].getSueldoLiquido() > 300)
-                empleadosSueldoMayor300.concat(" " + empleadosArray[i].getNombre() + " ");
+            if (empleadosArray[i].getSueldoLiquido() > 300.0)
+                empleadosSueldoMayor300 = empleadosSueldoMayor300 + " " + empleadosArray[i].getNombre() + ",";
         }
 
 
@@ -90,8 +93,10 @@ public class MainActivity2 extends AppCompatActivity {
 
         Boolean bonos = intent.getExtras().getBoolean("hayBonos");
 
+
+
         if(bonos == Boolean.FALSE){
-            Toast notificacion= Toast.makeText(this,"NO HAY BONOS",Toast.LENGTH_LONG);
+            Toast notificacion= Toast.makeText(this,"No se aplicaron bonos",Toast.LENGTH_LONG);
             notificacion.show();
         }
 
