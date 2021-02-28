@@ -3,6 +3,6 @@
     <string-array name="cargos_array">
         <item>Gerente</item>
         <item>Asistente</item>
-        <item>Secretario(a)</item>
+        <item>Secretaria</item>
     </string-array>
 </resources>

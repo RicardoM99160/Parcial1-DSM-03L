@@ -100,7 +100,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="100"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:textColor="#5E5E5E" />
 
                 <TextView
@@ -171,14 +171,14 @@
                     android:text="Horas trabajadas" />
 
                 <EditText
-                    android:id="@+id/editTextHoras2"
+                    android:id="@+id/eTextHoras2"
                     android:layout_width="277dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="15sp"
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="100"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:textColor="#5E5E5E" />
 
                 <TextView
@@ -255,7 +255,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="100"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:textColor="#5E5E5E" />
 
                 <TextView
@@ -278,6 +278,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:layout_marginTop="0dp"
+                android:onClick="validarEntrada"
                 android:text="CONTINUAR" />
 
 
